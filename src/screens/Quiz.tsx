@@ -17,7 +17,6 @@ const Question = styled.Text`
 `;
 
 const questions = generateQuestions();
-console.log(questions.slice(0, 1));
 
 const QuizScreen = () => {
   const [questionIndex, setQuestionIndex] = useState(0);

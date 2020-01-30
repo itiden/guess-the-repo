@@ -34,7 +34,6 @@ function hideRepoName(description: string, name: string) {
 function descriptionQuestion(repo: Repo, otherRepos: Repo[]) {
   const shuffledRepos = shuffle(otherRepos);
   const anwers: string[] = [repo.full_name];
-  console.log(shuffledRepos);
   shuffledRepos.slice(0, 3).forEach(shuffledRepo => {
     anwers.push(shuffledRepo.full_name);
   });
