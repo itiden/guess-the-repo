@@ -6,7 +6,6 @@ import styled from 'styled-components/native';
 import Button from '../components/Button';
 import {generateQuestions} from '../utils/questionUtil';
 import {useQuizStore} from '../context/AppContext';
-import {Text} from 'react-native';
 
 const Wrapper = styled.SafeAreaView`
   flex: 1;
@@ -18,6 +17,11 @@ const Container = styled.SafeAreaView`
 
 const Footer = styled.View`
   align-items: center;
+  padding: 20px;
+`;
+
+const FooterText = styled.Text`
+  font-size: 20px;
 `;
 
 const TopHalf = styled.View`
@@ -36,6 +40,8 @@ const Question = styled.Text`
   font-size: 24px;
 `;
 
+const StyledLottieView = styled(LottieView)``;
+
 const questions = generateQuestions();
 
 const QuizScreen = () => {
@@ -50,27 +56,30 @@ const QuizScreen = () => {
       quizStore.addScore();
     }
     setIsCorrect(correct);
-    setTimeout(() => {
-      setIsCorrect(undefined);
-      setQuestionIndex(questionIndex + 1);
-    }, 1000);
+  };
+
+  const nextQuestion = () => {
+    setQuestionIndex(questionIndex + 1);
+    setIsCorrect(undefined);
   };
 
   return (
     <Wrapper>
       <Container>
         {isCorrect !== undefined && isCorrect && (
-          <LottieView
+          <StyledLottieView
             source={require('../assets/lottie/correct.json')}
             autoPlay
             loop={false}
+            onAnimationFinish={() => nextQuestion()}
           />
         )}
         {isCorrect !== undefined && !isCorrect && (
-          <LottieView
+          <StyledLottieView
             source={require('../assets/lottie/not-correct.json')}
             autoPlay
             loop={false}
+            onAnimationFinish={() => nextQuestion()}
           />
         )}
         {isCorrect === undefined && (
@@ -100,7 +109,7 @@ const QuizScreen = () => {
         )}
       </Container>
       <Footer>
-        <Text>Score {quizStore.score}</Text>
+        <FooterText>Score {quizStore.score}</FooterText>
       </Footer>
     </Wrapper>
   );
