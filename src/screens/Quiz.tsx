@@ -16,7 +16,9 @@ const Container = styled.SafeAreaView`
   flex: 1;
 `;
 
-const Footer = styled.View``;
+const Footer = styled.View`
+  align-items: center;
+`;
 
 const TopHalf = styled.View`
   flex: 2;
