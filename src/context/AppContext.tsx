@@ -21,7 +21,7 @@ const AppContextProvider = memo((props: {children: ReactNode}) => {
 function useQuizStore() {
   const context = React.useContext(AppContext);
   if (!context) {
-    throw new Error(`useQuizStore must be used within a AppContextProvider`);
+    throw new Error('useQuizStore must be used within a AppContextProvider');
   }
   return context.quizStore;
 }
