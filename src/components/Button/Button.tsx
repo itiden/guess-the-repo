@@ -23,12 +23,10 @@ interface ButtonProps {
   onPress: () => void;
 }
 
-const Button = (props: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
   return (
     <Wrapper onPress={props.onPress} marginBottom={props.marginBottom}>
       <Label>{props.label}</Label>
     </Wrapper>
   );
 };
-
-export default Button;

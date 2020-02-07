@@ -3,7 +3,7 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
-import Button from '../components/Button';
+import {Button} from '../components/Button';
 
 const Wrapper = styled.SafeAreaView`
   padding: 20px;

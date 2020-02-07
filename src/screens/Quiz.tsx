@@ -3,7 +3,7 @@ import {observer} from 'mobx-react';
 import React, {useState} from 'react';
 import 'react-native-gesture-handler';
 import styled from 'styled-components/native';
-import Button from '../components/Button';
+import {Button} from '../components/Button';
 import {generateQuestions} from '../utils/questionUtil';
 import {useQuizStore} from '../context/AppContext';
 

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should match to snapshot 1`] = `
+Object {
+  "output": <Styled(TouchableOpacity)
+    onPress={[Function]}
+  >
+    <Styled(Text)>
+      Button
+    </Styled(Text)>
+  </Styled(TouchableOpacity)>,
+}
+`;
