@@ -1,7 +1,7 @@
 import {observer} from 'mobx-react';
 import React from 'react';
 import 'react-native-gesture-handler';
-import {useNavigation} from 'react-navigation-hooks';
+import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import Button from '../components/Button';
 
@@ -22,13 +22,9 @@ const HomeScreen = () => {
   return (
     <Wrapper>
       <Title>Guess the Repo</Title>
-      <Button label="Play!" onPress={() => navigation.navigate('quiz')} />
+      <Button label="Play!" onPress={() => navigation.navigate('Quiz')} />
     </Wrapper>
   );
-};
-
-HomeScreen.navigationOptions = {
-  headerShown: false,
 };
 
 export default observer(HomeScreen);

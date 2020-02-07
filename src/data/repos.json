@@ -798,9 +798,7 @@
     "watchers_count": 41555,
     "language": "JavaScript",
     "created_at": "2012-01-19T01:58:17Z"
-  }
-],
-[
+  },
   {
     "full_name": "psf/requests",
     "description": "A simple, yet elegant HTTP library.",
@@ -1600,9 +1598,7 @@
     "watchers_count": 29342,
     "language": "JavaScript",
     "created_at": "2011-04-26T06:32:03Z"
-  }
-],
-[
+  },
   {
     "full_name": "XX-net/XX-Net",
     "description": "a web proxy tool",
@@ -2402,9 +2398,7 @@
     "watchers_count": 23553,
     "language": "CSS",
     "created_at": "2018-02-24T01:54:18Z"
-  }
-],
-[
+  },
   {
     "full_name": "faif/python-patterns",
     "description": "A collection of design patterns/idioms in Python",
@@ -3204,9 +3198,7 @@
     "watchers_count": 20173,
     "language": "Kotlin",
     "created_at": "2017-06-23T06:15:51Z"
-  }
-],
-[
+  },
   {
     "full_name": "cmderdev/cmder",
     "description": "Lovely console emulator package for Windows",
@@ -4006,9 +3998,7 @@
     "watchers_count": 18407,
     "language": "JavaScript",
     "created_at": "2015-11-10T21:45:38Z"
-  }
-],
-[
+  },
   {
     "full_name": "aria2/aria2",
     "description": "aria2 is a lightweight multi-protocol & multi-source, cross platform download utility operated in command-line. It supports HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink.",
@@ -4808,9 +4798,7 @@
     "watchers_count": 16651,
     "language": "Python",
     "created_at": "2015-03-22T18:50:58Z"
-  }
-],
-[
+  },
   {
     "full_name": "prisma/prisma",
     "description": "💾 Database Tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)",
@@ -5610,9 +5598,7 @@
     "watchers_count": 15303,
     "language": "JavaScript",
     "created_at": "2017-06-20T16:13:53Z"
-  }
-],
-[
+  },
   {
     "full_name": "yunjey/pytorch-tutorial",
     "description": "PyTorch Tutorial for Deep Learning Researchers",
@@ -6412,9 +6398,7 @@
     "watchers_count": 14141,
     "language": "TypeScript",
     "created_at": "2013-10-10T14:34:18Z"
-  }
-],
-[
+  },
   {
     "full_name": "airbnb/react-sketchapp",
     "description": "render React components to Sketch ⚛️💎",
@@ -7214,9 +7198,7 @@
     "watchers_count": 13151,
     "language": "Go",
     "created_at": "2014-06-05T18:49:41Z"
-  }
-],
-[
+  },
   {
     "full_name": "handsontable/handsontable",
     "description": "JavaScript/HTML5 Data Grid Component with Spreadsheet Look & Feel. Available for React, Vue and Angular.",
