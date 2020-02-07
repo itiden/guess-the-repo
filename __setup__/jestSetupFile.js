@@ -6,3 +6,8 @@ jest.mock('react-native-screens', () => {
   return RealComponent;
 });
 jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+jest.mock('mobx-persist', () => {
+  const RealComponent = jest.requireActual('mobx-persist');
+  RealComponent.create = config => (key, store) => {};
+  return RealComponent;
+});
