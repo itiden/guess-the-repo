@@ -10,8 +10,13 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@react-native-community/async-storage": "^1.7.1",
     "@react-native-community/masked-view": "^0.1.6",
+    "lottie-ios": "^3.1.6",
+    "lottie-react-native": "^3.3.2",
     "mobx": "^5.15.4",
+    "mobx-persist": "^0.4.1",
     "mobx-react": "^6.1.4",
     "react": "16.9.0",
     "react-native": "0.61.5",

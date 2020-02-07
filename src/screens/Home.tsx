@@ -1,8 +1,9 @@
+import {observer} from 'mobx-react';
 import React from 'react';
 import 'react-native-gesture-handler';
+import {useNavigation} from 'react-navigation-hooks';
 import styled from 'styled-components/native';
 import Button from '../components/Button';
-import {useNavigation} from 'react-navigation-hooks';
 
 const Wrapper = styled.SafeAreaView`
   padding: 20px;
@@ -30,4 +31,4 @@ HomeScreen.navigationOptions = {
   headerShown: false,
 };
 
-export default HomeScreen;
+export default observer(HomeScreen);
