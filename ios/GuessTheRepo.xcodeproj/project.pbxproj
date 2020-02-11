@@ -19,6 +19,8 @@
 		2DCD954D1E0B4F2C00145EB5 /* GuessTheRepoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* GuessTheRepoTests.m */; };
 		5E0431E45F510CF395E39093 /* libPods-GuessTheRepo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C8A2F080E99A7C36C61D6B /* libPods-GuessTheRepo-tvOS.a */; };
 		DE9D5F5F39B15B269E9C7F29 /* libPods-GuessTheRepoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33953163113B30C75F674E06 /* libPods-GuessTheRepoTests.a */; };
+		E1A2ED1923F318B900CA1F50 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1A2ED1823F318B900CA1F50 /* AppCenter-Config.plist */; };
+		E1A2ED1B23F31C7400CA1F50 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2ED1A23F31C7400CA1F50 /* File.swift */; };
 		F5059572872E79F58E4B1E05 /* libPods-GuessTheRepo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EC03A361B8946ADE90AAB9 /* libPods-GuessTheRepo-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +66,8 @@
 		C081D28D9239807E3BAD7581 /* Pods-GuessTheRepo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuessTheRepo-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-GuessTheRepo-tvOSTests/Pods-GuessTheRepo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D466829D7339F9C89A7C329F /* libPods-GuessTheRepo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GuessTheRepo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EC03A361B8946ADE90AAB9 /* libPods-GuessTheRepo-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GuessTheRepo-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E19E812123EDBF0300DB05DC /* GuessTheRepo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GuessTheRepo-Bridging-Header.h"; sourceTree = "<group>"; };
+		E1A2ED1823F318B900CA1F50 /* AppCenter-Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppCenter-Config.plist"; sourceTree = "<group>"; };
+		E1A2ED1A23F31C7400CA1F50 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		E571E24607782A0C0587934D /* Pods-GuessTheRepo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuessTheRepo.debug.xcconfig"; path = "Target Support Files/Pods-GuessTheRepo/Pods-GuessTheRepo.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -175,13 +178,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E1A2ED1A23F31C7400CA1F50 /* File.swift */,
+				E1A2ED1823F318B900CA1F50 /* AppCenter-Config.plist */,
 				13B07FAE1A68108700A75B9A /* GuessTheRepo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* GuessTheRepoTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				6B4DD275A5D4FE2D7EF36C93 /* Pods */,
-				E19E812123EDBF0300DB05DC /* GuessTheRepo-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -343,6 +347,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				E1A2ED1923F318B900CA1F50 /* AppCenter-Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				E1A2ED1B23F31C7400CA1F50 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +593,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2762B56D6374C8F2989A1FEB /* Pods-GuessTheRepoTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -610,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D9980854D42931D6E0BA98F /* Pods-GuessTheRepoTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = GuessTheRepoTests/Info.plist;
@@ -641,7 +649,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = se.itiden.guesstherepo;
 				PRODUCT_NAME = GuessTheRepo;
 				SWIFT_OBJC_BRIDGING_HEADER = "GuessTheRepo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -664,7 +672,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = se.itiden.guesstherepo;
 				PRODUCT_NAME = GuessTheRepo;
 				SWIFT_OBJC_BRIDGING_HEADER = "GuessTheRepo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
