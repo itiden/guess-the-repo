@@ -9,10 +9,15 @@ import {useQuizStore} from '../context/AppContext';
 
 const Wrapper = styled.SafeAreaView`
   flex: 1;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Container = styled.SafeAreaView`
   flex: 1;
+  max-width: 600px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Footer = styled.View`
@@ -40,7 +45,10 @@ const Question = styled.Text`
   font-size: 24px;
 `;
 
-const StyledLottieView = styled(LottieView)``;
+const StyledLottieView = styled(LottieView)`
+  width: 100%;
+  height: 100%;
+`;
 
 const questions = generateQuestions();
 
