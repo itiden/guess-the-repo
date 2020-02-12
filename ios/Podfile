@@ -41,13 +41,3 @@ target 'GuessTheRepo' do
 
   use_native_modules!
 end
-
-target 'GuessTheRepo-tvOS' do
-  # Pods for GuessTheRepo-tvOS
-
-  target 'GuessTheRepo-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end
