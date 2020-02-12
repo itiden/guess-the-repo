@@ -7,12 +7,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "splash-2.png",
+      "filename" : "splashx2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "splash-1.png",
+      "filename" : "splashx3.png",
       "scale" : "3x"
     }
   ],
