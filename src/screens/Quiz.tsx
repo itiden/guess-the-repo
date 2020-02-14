@@ -11,6 +11,7 @@ const Wrapper = styled.SafeAreaView`
   flex: 1;
   align-items: center;
   justify-content: center;
+  margin: 20px;
 `;
 
 const Container = styled.SafeAreaView`
@@ -18,11 +19,11 @@ const Container = styled.SafeAreaView`
   max-width: 600px;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 
 const Footer = styled.View`
   align-items: center;
-  padding: 20px;
 `;
 
 const FooterText = styled.Text`
@@ -32,13 +33,13 @@ const FooterText = styled.Text`
 const TopHalf = styled.View`
   flex: 2;
   justify-content: flex-end;
-  padding: 20px;
+  padding-bottom: 20px;
 `;
 
 const BottomHalf = styled.View`
   flex: 3;
   justify-content: flex-start;
-  padding: 20px;
+  width: 100%;
 `;
 
 const Question = styled.Text`
@@ -46,16 +47,15 @@ const Question = styled.Text`
 `;
 
 const StyledLottieView = styled(LottieView)`
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 300px;
 `;
 
 const questions = generateQuestions();
 
 const QuizScreen = () => {
-  const [questionIndex, setQuestionIndex] = useState(0);
+  const [question, setQuestion] = useState(questions[0]);
   const [isCorrect, setIsCorrect] = useState<boolean>();
-  const question = questions[questionIndex];
   const quizStore = useQuizStore();
 
   const answer = (no: number) => {
@@ -67,7 +67,12 @@ const QuizScreen = () => {
   };
 
   const nextQuestion = () => {
-    setQuestionIndex(questionIndex + 1);
+    const nextQuestions = questions.filter(
+      nextQuestion => nextQuestion.type !== question.type,
+    );
+    setQuestion(
+      nextQuestions[Math.floor(Math.random() * nextQuestions.length)],
+    );
     setIsCorrect(undefined);
   };
 

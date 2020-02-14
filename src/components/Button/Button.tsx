@@ -6,6 +6,7 @@ interface WrapperProps {
 }
 
 const Wrapper = styled.TouchableOpacity`
+  width: 100%;
   border-radius: 20px;
   background-color: #000000;
   padding: 10px 20px;
@@ -15,6 +16,7 @@ const Wrapper = styled.TouchableOpacity`
 const Label = styled.Text`
   font-size: 24px;
   color: #fff;
+  text-align: center;
 `;
 
 interface ButtonProps {

@@ -10,6 +10,7 @@ const Wrapper = styled.SafeAreaView`
   justify-content: center;
   align-items: center;
   flex: 1;
+  margin: 40px;
 `;
 
 const Title = styled.Text`
