@@ -6,6 +6,7 @@ import {
 import React from 'react';
 import HomeScreen from './screens/Home';
 import QuizScreen from './screens/Quiz';
+import CreditsScreen from './screens/Credits';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ const Routes = () => (
         component={QuizScreen}
         options={{title: 'Guess the Repo'}}
       />
+      <Stack.Screen name="Credits" component={CreditsScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 );
