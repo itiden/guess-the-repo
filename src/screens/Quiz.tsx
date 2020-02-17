@@ -53,9 +53,11 @@ const StyledLottieView = styled(LottieView)`
 
 const questions = generateQuestions();
 
+type AnswerState = 'waiting' | 'correct' | 'wrong';
+
 const QuizScreen = () => {
   const [question, setQuestion] = useState(questions[0]);
-  const [isCorrect, setIsCorrect] = useState<boolean>();
+  const [state, setState] = useState<AnswerState>('waiting');
   const quizStore = useQuizStore();
 
   const answer = (no: number) => {
@@ -63,7 +65,7 @@ const QuizScreen = () => {
     if (correct) {
       quizStore.addScore();
     }
-    setIsCorrect(correct);
+    setState(correct ? 'correct' : 'wrong');
   };
 
   const nextQuestion = () => {
@@ -73,13 +75,13 @@ const QuizScreen = () => {
     setQuestion(
       nextQuestions[Math.floor(Math.random() * nextQuestions.length)],
     );
-    setIsCorrect(undefined);
+    setState('waiting');
   };
 
   return (
     <Wrapper>
       <Container>
-        {isCorrect !== undefined && isCorrect && (
+        {state === 'correct' && (
           <StyledLottieView
             source={require('../assets/lottie/correct.json')}
             autoPlay
@@ -87,7 +89,7 @@ const QuizScreen = () => {
             onAnimationFinish={() => nextQuestion()}
           />
         )}
-        {isCorrect !== undefined && !isCorrect && (
+        {state === 'wrong' && (
           <StyledLottieView
             source={require('../assets/lottie/not-correct.json')}
             autoPlay
@@ -95,7 +97,7 @@ const QuizScreen = () => {
             onAnimationFinish={() => nextQuestion()}
           />
         )}
-        {isCorrect === undefined && (
+        {state === 'waiting' && (
           <>
             <TopHalf>
               <Question>{question.question}</Question>
