@@ -6,7 +6,6 @@ import styled from 'styled-components/native';
 import {Button} from '../components/Button';
 
 const Wrapper = styled.SafeAreaView`
-  padding: 20px;
   justify-content: center;
   align-items: center;
   flex: 1;
@@ -16,6 +15,7 @@ const Wrapper = styled.SafeAreaView`
 const Title = styled.Text`
   font-size: 36px;
   margin: 20px;
+  text-align: center;
 `;
 
 const HomeScreen = () => {
