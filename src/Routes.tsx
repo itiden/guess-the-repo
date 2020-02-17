@@ -1,5 +1,8 @@
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from '@react-navigation/stack';
 import React from 'react';
 import HomeScreen from './screens/Home';
 import QuizScreen from './screens/Quiz';
@@ -10,7 +13,10 @@ const Routes = () => (
   <NavigationContainer>
     <Stack.Navigator
       initialRouteName="Home"
-      screenOptions={{gestureEnabled: false}}>
+      screenOptions={{
+        gestureEnabled: false,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+      }}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
