@@ -1,13 +1,29 @@
-import {observable, action} from 'mobx';
+import {action, computed, observable} from 'mobx';
 import {persist} from 'mobx-persist';
+import {Question} from '../utils/questionUtil';
+
+export interface Answer {
+  correct: boolean;
+  question: Question;
+}
 
 export default class QuizStore {
-  @persist
+  @persist('object')
   @observable
-  score: number = 0;
+  answers: Answer[] = [];
 
   @action
-  addScore() {
-    this.score += 1;
+  addAnswer(answer: Answer) {
+    this.answers.push(answer);
+  }
+
+  @computed
+  get score() {
+    return this.answers.filter(a => a.correct).length;
+  }
+
+  @computed
+  get answeredQuestions() {
+    return this.answers.filter(a => a.correct).map(a => a.question);
   }
 }

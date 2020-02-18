@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import {Button} from '../components/Button';
-import {generateQuestions} from '../utils/questionUtil';
+import {generateQuestions, Question} from '../utils/questionUtil';
 import {useQuizStore} from '../context/AppContext';
 
 const Wrapper = styled.SafeAreaView`
@@ -42,7 +42,7 @@ const BottomHalf = styled.View`
   width: 100%;
 `;
 
-const Question = styled.Text`
+const QuestionText = styled.Text`
   font-size: 24px;
 `;
 
@@ -53,28 +53,38 @@ const StyledLottieView = styled(LottieView)`
 
 const questions = generateQuestions();
 
+function getNewQuestion(answeredQuestions: Question[]) {
+  const filteredQuestions = questions.filter(q =>
+    answeredQuestions
+      .map(aq => `${aq.type}${aq.repo.full_name}`)
+      .includes(`${q.type}${q.repo.full_name}`),
+  );
+  return filteredQuestions[
+    Math.floor(Math.random() * filteredQuestions.length)
+  ];
+}
+
 type AnswerState = 'waiting' | 'correct' | 'wrong';
 
 const QuizScreen = () => {
-  const [question, setQuestion] = useState(questions[0]);
-  const [state, setState] = useState<AnswerState>('waiting');
   const quizStore = useQuizStore();
+  console.log(quizStore.answeredQuestions);
+  const [question, setQuestion] = useState(
+    getNewQuestion(quizStore.answeredQuestions),
+  );
+  const [state, setState] = useState<AnswerState>('waiting');
 
   const answer = (no: number) => {
     const correct = no === question.correct;
-    if (correct) {
-      quizStore.addScore();
-    }
+    quizStore.addAnswer({
+      correct,
+      question,
+    });
     setState(correct ? 'correct' : 'wrong');
   };
 
   const nextQuestion = () => {
-    const nextQuestions = questions.filter(
-      nextQuestion => nextQuestion.type !== question.type,
-    );
-    setQuestion(
-      nextQuestions[Math.floor(Math.random() * nextQuestions.length)],
-    );
+    setQuestion(getNewQuestion(quizStore.answeredQuestions));
     setState('waiting');
   };
 
@@ -97,10 +107,13 @@ const QuizScreen = () => {
             onAnimationFinish={() => nextQuestion()}
           />
         )}
+        {(state === 'correct' || state === 'wrong') && (
+          <QuestionText>Hej!</QuestionText>
+        )}
         {state === 'waiting' && (
           <>
             <TopHalf>
-              <Question>{question.question}</Question>
+              <QuestionText>{question.question}</QuestionText>
             </TopHalf>
             <BottomHalf>
               <Button
@@ -124,7 +137,7 @@ const QuizScreen = () => {
         )}
       </Container>
       <Footer>
-        <FooterText>Score {quizStore.score}</FooterText>
+        <FooterText>Your Score {quizStore.score}</FooterText>
       </Footer>
     </Wrapper>
   );

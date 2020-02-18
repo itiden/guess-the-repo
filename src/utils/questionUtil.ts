@@ -1,11 +1,12 @@
 import repos from '../data/repos.json';
 
-type Repo = typeof repos[number];
-type Question = {
+export type Repo = typeof repos[number];
+export type Question = {
   question: string;
   anwers: string[];
   correct: number;
   type: string;
+  repo: Repo;
 };
 
 const questionApprovedLanguages = [
@@ -86,6 +87,7 @@ function descriptionQuestion(repo: Repo, otherRepos: Repo[]) {
     anwers: shuffledAnswers,
     correct: shuffledAnswers.indexOf(repo.full_name) + 1,
     type: 'description',
+    repo,
   };
 }
 
@@ -103,6 +105,7 @@ function languageQuestion(repo: Repo) {
     anwers: shuffledAnswers,
     correct: shuffledAnswers.indexOf(repo.language) + 1,
     type: 'language',
+    repo,
   };
 }
 
