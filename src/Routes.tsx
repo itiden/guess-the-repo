@@ -15,6 +15,13 @@ const Routes = () => (
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
+        headerBackTitleStyle: {
+          color: 'rgb(80, 77, 210)',
+        },
+        headerTintColor: 'rgb(80, 77, 210)',
+        headerTitleStyle: {
+          color: '#000',
+        },
         gestureEnabled: false,
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}>
