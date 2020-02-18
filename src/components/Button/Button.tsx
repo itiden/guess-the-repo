@@ -14,7 +14,7 @@ const Wrapper = styled.TouchableOpacity`
 `;
 
 const Label = styled.Text`
-  font-size: 24px;
+  font-size: 20px;
   color: #fff;
   text-align: center;
 `;

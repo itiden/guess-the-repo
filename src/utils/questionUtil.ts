@@ -75,6 +75,13 @@ function hideRepoName(description: string | null, name: string) {
   return nonSpoiledDescription;
 }
 
+function truncate(text: string, maxLength: number) {
+  if (text.length < maxLength) {
+    return text;
+  }
+  return text.substr(0, maxLength - 3) + '...';
+}
+
 function descriptionQuestion(repo: Repo, otherRepos: Repo[]) {
   const shuffledRepos = shuffle(otherRepos);
   const anwers: string[] = [repo.full_name];
@@ -83,7 +90,7 @@ function descriptionQuestion(repo: Repo, otherRepos: Repo[]) {
   });
   const shuffledAnswers = shuffle(anwers);
   return {
-    question: hideRepoName(repo.description, repo.full_name),
+    question: truncate(hideRepoName(repo.description, repo.full_name), 100),
     anwers: shuffledAnswers,
     correct: shuffledAnswers.indexOf(repo.full_name) + 1,
     type: 'description',

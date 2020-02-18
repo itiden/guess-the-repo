@@ -32,18 +32,20 @@ const FooterText = styled.Text`
 
 const TopHalf = styled.View`
   flex: 2;
-  justify-content: flex-end;
-  padding-bottom: 20px;
+  align-items: flex-end;
+  flex-direction: row;
 `;
 
 const BottomHalf = styled.View`
   flex: 3;
   justify-content: flex-start;
   width: 100%;
+  padding-top: 20px;
 `;
 
 const QuestionText = styled.Text`
-  font-size: 24px;
+  font-size: 22px;
+  flex: 1;
 `;
 
 const StyledLottieView = styled(LottieView)`
@@ -54,11 +56,16 @@ const StyledLottieView = styled(LottieView)`
 const questions = generateQuestions();
 
 function getNewQuestion(answeredQuestions: Question[]) {
-  const filteredQuestions = questions.filter(q =>
-    answeredQuestions
-      .map(aq => `${aq.type}${aq.repo.full_name}`)
-      .includes(`${q.type}${q.repo.full_name}`),
+  const filteredQuestions = questions.filter(
+    q =>
+      !answeredQuestions
+        .map(aq => `${aq.type}${aq.repo.full_name}`)
+        .includes(`${q.type}${q.repo.full_name}`),
   );
+  // All questions answered! Good job!
+  if (filteredQuestions.length === 0) {
+    return questions[Math.floor(Math.random() * questions.length)];
+  }
   return filteredQuestions[
     Math.floor(Math.random() * filteredQuestions.length)
   ];
@@ -68,7 +75,6 @@ type AnswerState = 'waiting' | 'correct' | 'wrong';
 
 const QuizScreen = () => {
   const quizStore = useQuizStore();
-  console.log(quizStore.answeredQuestions);
   const [question, setQuestion] = useState(
     getNewQuestion(quizStore.answeredQuestions),
   );
@@ -107,9 +113,6 @@ const QuizScreen = () => {
             onAnimationFinish={() => nextQuestion()}
           />
         )}
-        {(state === 'correct' || state === 'wrong') && (
-          <QuestionText>Hej!</QuestionText>
-        )}
         {state === 'waiting' && (
           <>
             <TopHalf>
@@ -137,7 +140,10 @@ const QuizScreen = () => {
         )}
       </Container>
       <Footer>
-        <FooterText>Your Score {quizStore.score}</FooterText>
+        <FooterText>
+          Your Score {quizStore.score} (
+          {((quizStore.score / questions.length) * 100).toFixed(2)}%)
+        </FooterText>
       </Footer>
     </Wrapper>
   );
