@@ -8,7 +8,7 @@ interface WrapperProps {
 const Wrapper = styled.TouchableOpacity`
   width: 100%;
   border-radius: 20px;
-  background-color: #000000;
+  background-color: rgb(80, 77, 210);
   padding: 10px 20px;
   ${(p: WrapperProps) => p.marginBottom && 'margin-bottom: 20px'}
 `;

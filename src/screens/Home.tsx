@@ -27,6 +27,7 @@ const Title = styled.Text`
 const CreditText = styled.Text`
   font-size: 18px;
   text-align: center;
+  color: rgb(80, 77, 210);
 `;
 
 const HomeScreen = () => {
