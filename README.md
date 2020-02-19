@@ -3,7 +3,10 @@ iOS: [![Build status](https://build.appcenter.ms/v0.1/apps/f3b307dc-b665-46a6-99
 
 # Guess the Repo React Native app
 
-To test, run:
+Built with React Native, TypeScript, React Navigation, Styled Components and MobX.  
+App available on app stores for iOS and Android, see https://guesstherepo.itiden.se
+
+To run:
 
 ```
 yarn
