@@ -1,10 +1,9 @@
-import {observer} from 'mobx-react';
-import React from 'react';
-import 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
+import React, {memo} from 'react';
+import {TouchableOpacity} from 'react-native';
+import 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import {Button} from '../components/Button';
-import {TouchableOpacity} from 'react-native';
 
 const Wrapper = styled.SafeAreaView`
   justify-content: center;
@@ -30,7 +29,7 @@ const CreditText = styled.Text`
   color: rgb(80, 77, 210);
 `;
 
-const HomeScreen = () => {
+const HomeScreen = memo(() => {
   const navigation = useNavigation();
   return (
     <Wrapper>
@@ -43,6 +42,6 @@ const HomeScreen = () => {
       </TouchableOpacity>
     </Wrapper>
   );
-};
+});
 
-export default observer(HomeScreen);
+export default HomeScreen;
