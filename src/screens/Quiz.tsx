@@ -1,7 +1,6 @@
 import LottieView from 'lottie-react-native';
 import {observer} from 'mobx-react';
 import React, {useState} from 'react';
-import 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import {Button} from '../components/Button';
 import {useQuizStore} from '../context/AppContext';
