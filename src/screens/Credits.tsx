@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {Linking} from 'react-native';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
@@ -31,7 +31,7 @@ const Arrow = styled.Text`
   color: rgb(80, 77, 210);
 `;
 
-const Credits = () => (
+const Credits = memo(() => (
   <FlatList
     ListHeaderComponent={() => (
       <Header>
@@ -61,6 +61,6 @@ const Credits = () => (
       </ListItem>
     )}
   />
-);
+));
 
 export default Credits;
