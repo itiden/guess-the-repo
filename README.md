@@ -13,3 +13,9 @@ yarn
 cd ios && pod install (for ios)
 yarn ios|android
 ```
+
+To test:
+```
+yarn test
+yarn lint
+```
