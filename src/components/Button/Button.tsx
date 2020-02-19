@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC, memo} from 'react';
 import styled from 'styled-components/native';
 
 interface WrapperProps {
@@ -25,10 +25,10 @@ interface ButtonProps {
   onPress: () => void;
 }
 
-export const Button = (props: ButtonProps) => {
-  return (
-    <Wrapper onPress={props.onPress} marginBottom={props.marginBottom}>
-      <Label>{props.label}</Label>
+export const Button: FC<ButtonProps> = memo(
+  ({marginBottom, label, onPress}) => (
+    <Wrapper onPress={onPress} marginBottom={marginBottom}>
+      <Label>{label}</Label>
     </Wrapper>
-  );
-};
+  ),
+);

@@ -3,7 +3,7 @@ import repos from '../data/repos.json';
 export type Repo = typeof repos[number];
 export type Question = {
   question: string;
-  anwers: string[];
+  answers: string[];
   correct: number;
   type: string;
   repo: Repo;
@@ -84,14 +84,14 @@ function truncate(text: string, maxLength: number) {
 
 function descriptionQuestion(repo: Repo, otherRepos: Repo[]) {
   const shuffledRepos = shuffle(otherRepos);
-  const anwers: string[] = [repo.full_name];
+  const answers: string[] = [repo.full_name];
   shuffledRepos.slice(0, 3).forEach(shuffledRepo => {
-    anwers.push(shuffledRepo.full_name);
+    answers.push(shuffledRepo.full_name);
   });
-  const shuffledAnswers = shuffle(anwers);
+  const shuffledAnswers = shuffle(answers);
   return {
     question: truncate(hideRepoName(repo.description, repo.full_name), 100),
-    anwers: shuffledAnswers,
+    answers: shuffledAnswers,
     correct: shuffledAnswers.indexOf(repo.full_name) + 1,
     type: 'description',
     repo,
@@ -99,17 +99,17 @@ function descriptionQuestion(repo: Repo, otherRepos: Repo[]) {
 }
 
 function languageQuestion(repo: Repo) {
-  const anwers: string[] = [repo.language!];
+  const answers: string[] = [repo.language!];
   const shuffledLanguages = shuffle(
     questionApprovedLanguages.filter(l => l !== repo.language),
   );
   shuffledLanguages.slice(0, 3).forEach(shuffledLanguage => {
-    anwers.push(shuffledLanguage);
+    answers.push(shuffledLanguage);
   });
-  const shuffledAnswers = shuffle(anwers);
+  const shuffledAnswers = shuffle(answers);
   return {
     question: `What is the main programming language for ${repo.full_name}`,
-    anwers: shuffledAnswers,
+    answers: shuffledAnswers,
     correct: shuffledAnswers.indexOf(repo.language) + 1,
     type: 'language',
     repo,

@@ -4,8 +4,8 @@ import React, {useState} from 'react';
 import 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import {Button} from '../components/Button';
-import {generateQuestions, Question} from '../utils/questionUtil';
 import {useQuizStore} from '../context/AppContext';
+import {generateQuestions, Question} from '../utils/questionUtil';
 
 const Wrapper = styled.SafeAreaView`
   flex: 1;
@@ -119,22 +119,14 @@ const QuizScreen = () => {
               <QuestionText>{question.question}</QuestionText>
             </TopHalf>
             <BottomHalf>
-              <Button
-                label={question.anwers[0]}
-                onPress={() => answer(1)}
-                marginBottom
-              />
-              <Button
-                label={question.anwers[1]}
-                onPress={() => answer(2)}
-                marginBottom
-              />
-              <Button
-                label={question.anwers[2]}
-                onPress={() => answer(3)}
-                marginBottom
-              />
-              <Button label={question.anwers[3]} onPress={() => answer(4)} />
+              {question.answers.map((a, index) => {
+                const answerButtonProps = {
+                  label: a,
+                  onPress: () => answer(index + 1),
+                  marginBottom: index !== question.answers.length - 1,
+                };
+                return <Button key={index} {...answerButtonProps} />;
+              })}
             </BottomHalf>
           </>
         )}
