@@ -1,5 +1,5 @@
 import React from 'react';
-import {Linking, Text} from 'react-native';
+import {Linking} from 'react-native';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import {Link} from '../components/Link';
