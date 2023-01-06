@@ -1,5 +1,7 @@
 #import "AppDelegate.h"
-
+#import <AppCenterReactNative.h>
+#import <AppCenterReactNativeAnalytics.h>
+#import <AppCenterReactNativeCrashes.h>
 #import <React/RCTBundleURLProvider.h>
 
 @implementation AppDelegate

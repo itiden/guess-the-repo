@@ -6,11 +6,11 @@ export interface AppContextInterface {
 }
 
 const AppContext = React.createContext<AppContextInterface>({
-  quizStore,
+  quizStore: quizStore(),
 });
 
 const AppContextProvider = memo((props: { children: ReactNode }) => {
-  return <AppContext.Provider value={{ quizStore }} {...props} />;
+  return <AppContext.Provider value={{ quizStore: quizStore() }} {...props} />;
 });
 
 function useQuizStore() {
