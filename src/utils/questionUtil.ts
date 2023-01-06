@@ -42,18 +42,18 @@ const questionApprovedLanguages = [
 ];
 
 function generateQuestions(): Question[] {
-  const descriptionQuestions = repos.map(repo =>
+  const descriptionQuestions = repos.map((repo) =>
     descriptionQuestion(
       repo,
-      repos.filter(r => r.full_name !== repo.full_name),
+      repos.filter((r) => r.full_name !== repo.full_name),
     ),
   );
   const languageFilteredRepos = repos.filter(
-    repo =>
+    (repo) =>
       repo.language != null &&
       questionApprovedLanguages.includes(repo.language),
   );
-  const languageQuestions = languageFilteredRepos.map(repo =>
+  const languageQuestions = languageFilteredRepos.map((repo) =>
     languageQuestion(repo),
   );
   return descriptionQuestions.concat(languageQuestions);
@@ -66,7 +66,7 @@ function hideRepoName(description: string | null, name: string) {
   const names = name.split(/[\/\.-]/);
   let nonSpoiledDescription = description;
   names.forEach(
-    n =>
+    (n) =>
       (nonSpoiledDescription = nonSpoiledDescription.replace(
         new RegExp(n, 'ig'),
         '***',
@@ -85,7 +85,7 @@ function truncate(text: string, maxLength: number) {
 function descriptionQuestion(repo: Repo, otherRepos: Repo[]) {
   const shuffledRepos = shuffle(otherRepos);
   const answers: string[] = [repo.full_name];
-  shuffledRepos.slice(0, 3).forEach(shuffledRepo => {
+  shuffledRepos.slice(0, 3).forEach((shuffledRepo) => {
     answers.push(shuffledRepo.full_name);
   });
   const shuffledAnswers = shuffle(answers);
@@ -101,9 +101,9 @@ function descriptionQuestion(repo: Repo, otherRepos: Repo[]) {
 function languageQuestion(repo: Repo) {
   const answers: string[] = [repo.language!];
   const shuffledLanguages = shuffle(
-    questionApprovedLanguages.filter(l => l !== repo.language),
+    questionApprovedLanguages.filter((l) => l !== repo.language),
   );
-  shuffledLanguages.slice(0, 3).forEach(shuffledLanguage => {
+  shuffledLanguages.slice(0, 3).forEach((shuffledLanguage) => {
     answers.push(shuffledLanguage);
   });
   const shuffledAnswers = shuffle(answers);
@@ -124,4 +124,4 @@ function shuffle(a: any[]) {
   return a;
 }
 
-export {generateQuestions};
+export { generateQuestions };

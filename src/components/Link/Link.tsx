@@ -1,11 +1,11 @@
 import React from 'react';
-import {Linking, Text} from 'react-native';
+import { Linking, Text } from 'react-native';
 
 interface LinkProps {
   url: string;
 }
 
-export const Link = ({url, children}: React.PropsWithChildren<LinkProps>) => (
+export const Link = ({ url, children }: React.PropsWithChildren<LinkProps>) => (
   <Text className="text-primary" onPress={() => Linking.openURL(url)}>
     {children}
   </Text>

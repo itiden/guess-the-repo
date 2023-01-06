@@ -7,10 +7,10 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint:test": "eslint . ",
-    "lint:fix": "eslint . --fix",
-    "format:test": "prettier --check .",
-    "format:fix": "prettier --write .",
+    "lint:test": "eslint ./src ",
+    "lint:fix": "eslint ./src --fix",
+    "format:test": "prettier --check ./src",
+    "format:fix": "prettier --write ./src",
     "postinstall": "patch-package"
   },
   "dependencies": {
