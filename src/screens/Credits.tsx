@@ -1,8 +1,9 @@
 import { cx } from 'class-variance-authority';
 import React from 'react';
 import { Linking, Text, View } from 'react-native';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Link } from '../components/Link';
+import { FlashList } from '@shopify/flash-list';
 import repos from '../data/repos.json';
 
 const CreditsHeader = () => (
@@ -24,10 +25,11 @@ const CreditsHeader = () => (
 );
 
 const Credits = () => (
-  <FlatList
+  <FlashList
     ListHeaderComponent={CreditsHeader}
     keyExtractor={(item) => item.full_name}
     data={repos}
+    estimatedItemSize={200}
     renderItem={({ item, index }) => (
       <TouchableOpacity
         className={cx(

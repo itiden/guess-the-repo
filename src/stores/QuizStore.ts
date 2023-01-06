@@ -16,7 +16,6 @@ export const quizStore = () => {
       return this.answers.filter((a: Answer) => a.correct).length;
     },
     get answeredQuestions() {
-      console.log('!!!');
       return this.answers
         .filter((a: Answer) => a.correct)
         .map((a: Answer) => a.question);
