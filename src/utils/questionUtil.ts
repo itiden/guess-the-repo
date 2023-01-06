@@ -63,7 +63,7 @@ function hideRepoName(description: string | null, name: string) {
   if (description == null) {
     return '***';
   }
-  const names = name.split(/[\/\.-]/);
+  const names = name.split(/[/.-]/);
   let nonSpoiledDescription = description;
   names.forEach(
     (n) =>
