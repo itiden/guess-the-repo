@@ -1,16 +1,17 @@
-import React, { ReactNode, memo } from 'react';
-import { QuizStore, quizStore } from '../stores/QuizStore';
+import React, { ReactNode, memo, useContext } from 'react';
+import { QuizStore, createQuizStore } from '../stores/QuizStore';
 
 export interface AppContextInterface {
   quizStore: QuizStore;
 }
 
 const AppContext = React.createContext<AppContextInterface>({
-  quizStore: quizStore(),
+  quizStore: createQuizStore(),
 });
 
 const AppContextProvider = memo((props: { children: ReactNode }) => {
-  return <AppContext.Provider value={{ quizStore: quizStore() }} {...props} />;
+  const { quizStore } = useContext(AppContext);
+  return <AppContext.Provider value={{ quizStore }} {...props} />;
 });
 
 function useQuizStore() {
@@ -18,7 +19,7 @@ function useQuizStore() {
   if (!context) {
     throw new Error('useQuizStore must be used within a AppContextProvider');
   }
-  return context.quizStore;
+  return context.quizStore!;
 }
 
 export { AppContextProvider, useQuizStore };
