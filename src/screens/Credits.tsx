@@ -2,12 +2,12 @@ import { cx } from 'class-variance-authority';
 import React from 'react';
 import { Linking, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Link } from '../components/Link';
 import { FlashList } from '@shopify/flash-list';
 import repos from '../data/repos.json';
+import { Link } from '../components/Link';
 
 const CreditsHeader = () => (
-  <View className="m-5">
+  <View className="p-5 bg-violet-100">
     <Text className="text-base">
       Credits to all the Open Source contributors!
     </Text>
@@ -29,19 +29,19 @@ const Credits = () => (
     ListHeaderComponent={CreditsHeader}
     keyExtractor={(item) => item.full_name}
     data={repos}
-    estimatedItemSize={200}
+    estimatedItemSize={33}
     renderItem={({ item, index }) => (
       <TouchableOpacity
         className={cx(
           'p-2 flex-row',
-          index % 2 !== 0 ? 'bg-[#efefef]' : 'bg-[#fefefe]',
+          index % 2 !== 0 ? 'bg-gray-100' : 'bg-gray-200',
         )}
         onPress={() =>
           Linking.openURL(`https://www.github.com/${item.full_name}`)
         }
       >
         <Text className="flex-1">{item.full_name}</Text>
-        <Text className="text-primary">&gt;</Text>
+        <Text className="text-violet-700">&gt;</Text>
       </TouchableOpacity>
     )}
   />

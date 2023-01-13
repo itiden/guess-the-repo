@@ -1,7 +1,7 @@
 // Hello.spec.js
 import React from 'react';
 import { render } from 'react-native-testing-library';
-import { Button } from './Button';
+import { Button } from '.';
 
 describe('Button', () => {
   it('renders correct', () => {

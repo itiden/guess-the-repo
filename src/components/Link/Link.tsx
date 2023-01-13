@@ -6,7 +6,7 @@ interface LinkProps {
 }
 
 export const Link = ({ url, children }: React.PropsWithChildren<LinkProps>) => (
-  <Text className="text-primary" onPress={() => Linking.openURL(url)}>
+  <Text className="text-violet-700" onPress={() => Linking.openURL(url)}>
     {children}
   </Text>
 );

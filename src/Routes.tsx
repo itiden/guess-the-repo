@@ -21,10 +21,6 @@ const Routes = () => (
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
-        cardStyle: {
-          backgroundColor: 'transparent',
-        },
-        presentation: 'transparentModal',
         headerBackTitleStyle: {
           color: 'rgb(80, 77, 210)',
         },
