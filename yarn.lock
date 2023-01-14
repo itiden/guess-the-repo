@@ -2012,9 +2012,9 @@
     tslib "2.4.0"
 
 "@shopify/react-native-skia@^0.1.170":
-  version "0.1.170"
-  resolved "https://registry.yarnpkg.com/@shopify/react-native-skia/-/react-native-skia-0.1.170.tgz#45d46a0009b2599773f583adce3207a1134626b1"
-  integrity sha512-WwZiJyMHyxDZtAo2LQ/grylgFwMhX4XJUCGZz8V/LCUjHAaxzsTQoeG5Bool5x8bxPTL5YYalKWOpJtHRub6Lg==
+  version "0.1.171"
+  resolved "https://registry.yarnpkg.com/@shopify/react-native-skia/-/react-native-skia-0.1.171.tgz#70f00e178d3bc06d95535a82cbfbea2bd3723987"
+  integrity sha512-m/pSfc/xAlAqSIEzFsf82QJs3aRkq+Bn1xEJMPKWIZ8J4QDE6bGQ8MXy9/nM+89VYz1GjdYI2BKnCC3ZMjhT6Q==
   dependencies:
     "@types/pixelmatch" "^5.2.4"
     "@types/pngjs" "^6.0.1"
@@ -6794,9 +6794,9 @@ prettier-linter-helpers@^1.0.0:
     fast-diff "^1.1.2"
 
 prettier@^2.4.1:
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.2.tgz#c4ea1b5b454d7c4b59966db2e06ed7eec5dfd160"
-  integrity sha512-BtRV9BcncDyI2tsuS19zzhzoxD8Dh8LiCx7j7tHzrkz8GFXAexeWFdi22mjE1d16dftH2qNaytVxqiRTGlMfpw==
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.3.tgz#ab697b1d3dd46fb4626fbe2f543afe0cc98d8632"
+  integrity sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==
 
 pretty-format@^26.0.1, pretty-format@^26.5.2, pretty-format@^26.6.2:
   version "26.6.2"
