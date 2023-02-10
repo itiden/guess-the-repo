@@ -6952,10 +6952,10 @@ react-native-gradle-plugin@^0.71.12:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.12.tgz#7f0000b3d9593288183a13889fd6225d0ab506b8"
   integrity sha512-ILujN0C+cX5QHmm22MXbHqZR619OzV/VThLHFhe7qnzZWpPh8O4KSvbtezoYMiBbmowAfy8SQpohwlN3nv6wZQ==
 
-react-native-mmkv@^2.5.1:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.6.0.tgz#71a4b6f8c5832fb78b4deb4b7cf71ca2b2ddbedc"
-  integrity sha512-Vq6JDgx1e6vYc8nNwHk9KJezI2+qIQvU/AlpxAWt1Qcgpc/HJJYiq1gonDTT85mmQzKILGE+USQeMk3IOzgK0w==
+react-native-mmkv@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.6.1.tgz#0d4873171d69fd648711b6c75562dc2633aba98c"
+  integrity sha512-CqtKCkyH9/ZUyvj2SelE3Ohc1FuTDTxr1cjlbTSS17n3RDod2ucBkzQWRyDqZeLJ5K/ViEvLEJbIwjfmICN6Rw==
 
 react-native-reanimated@^2.14.1:
   version "2.14.1"
