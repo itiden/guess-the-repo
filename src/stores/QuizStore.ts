@@ -1,29 +1,43 @@
-import {action, computed, observable} from 'mobx';
-import {persist} from 'mobx-persist';
-import {Question} from '../utils/questionUtil';
+import { makeAutoObservable } from 'mobx';
+import { configurePersistable, makePersistable } from 'mobx-persist-store';
+import { MMKV } from 'react-native-mmkv';
+import { Question } from '../utils/questionUtil';
+
+const storage = new MMKV();
+
+configurePersistable({
+  storage: {
+    setItem: (key, data) => storage.set(key, data),
+    getItem: (key) => storage.getString(key) ?? null,
+    removeItem: (key) => storage.delete(key),
+  },
+});
 
 export interface Answer {
   correct: boolean;
   question: Question;
 }
 
-export default class QuizStore {
-  @persist('object')
-  @observable
-  answers: Answer[] = [];
+export const createQuizStore = () => {
+  const initialState = makeAutoObservable({
+    answers: [] as Answer[],
+    addAnswer(answer: Answer) {
+      this.answers.push(answer);
+    },
+    get score() {
+      return this.answers.filter((a: Answer) => a.correct).length;
+    },
+    get answeredQuestions() {
+      return this.answers
+        .filter((a: Answer) => a.correct)
+        .map((a: Answer) => a.question);
+    },
+  });
+  makePersistable(initialState, {
+    name: 'QuizStore',
+    properties: ['answers'],
+  });
+  return initialState;
+};
 
-  @action
-  addAnswer(answer: Answer) {
-    this.answers.push(answer);
-  }
-
-  @computed
-  get score() {
-    return this.answers.filter(a => a.correct).length;
-  }
-
-  @computed
-  get answeredQuestions() {
-    return this.answers.filter(a => a.correct).map(a => a.question);
-  }
-}
+export type QuizStore = Awaited<ReturnType<typeof createQuizStore>>;

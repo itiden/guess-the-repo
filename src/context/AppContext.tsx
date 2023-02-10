@@ -1,21 +1,17 @@
-import React, {ReactNode, memo} from 'react';
-import QuizStore from '../stores/QuizStore';
-import AsyncStorage from '@react-native-community/async-storage';
-import {create} from 'mobx-persist';
+import React, { ReactNode, memo, useContext } from 'react';
+import { QuizStore, createQuizStore } from '../stores/QuizStore';
 
 export interface AppContextInterface {
   quizStore: QuizStore;
 }
 
-const AppContext = React.createContext<AppContextInterface | undefined>(
-  undefined,
-);
+const AppContext = React.createContext<AppContextInterface>({
+  quizStore: createQuizStore(),
+});
 
-const AppContextProvider = memo((props: {children: ReactNode}) => {
-  const quizStore = new QuizStore();
-  const hydrate = create({storage: AsyncStorage, jsonify: true});
-  hydrate('quizStore', quizStore);
-  return <AppContext.Provider value={{quizStore}} {...props} />;
+const AppContextProvider = memo((props: { children: ReactNode }) => {
+  const { quizStore } = useContext(AppContext);
+  return <AppContext.Provider value={{ quizStore }} {...props} />;
 });
 
 function useQuizStore() {
@@ -23,7 +19,7 @@ function useQuizStore() {
   if (!context) {
     throw new Error('useQuizStore must be used within a AppContextProvider');
   }
-  return context.quizStore;
+  return context.quizStore!;
 }
 
-export {AppContextProvider, useQuizStore};
+export { AppContextProvider, useQuizStore };

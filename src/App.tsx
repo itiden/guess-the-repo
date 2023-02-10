@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
+import { AppContextProvider } from './context/AppContext';
 import Routes from './Routes';
-import {AppContextProvider} from './context/AppContext';
-import {enableScreens} from 'react-native-screens';
-import codePush from 'react-native-code-push';
+import RNBootSplash from 'react-native-bootsplash';
 
-enableScreens();
+const App = () => {
+  useEffect(() => {
+    RNBootSplash.hide({ fade: true });
+  }, []);
+  return (
+    <AppContextProvider>
+      <Routes />
+    </AppContextProvider>
+  );
+};
 
-let codePushOptions = {checkFrequency: codePush.CheckFrequency.ON_APP_RESUME};
-
-const App = () => (
-  <AppContextProvider>
-    <Routes />
-  </AppContextProvider>
-);
-
-export default codePush(codePushOptions)(App);
+export default App;

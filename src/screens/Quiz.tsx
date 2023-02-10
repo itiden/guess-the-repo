@@ -1,64 +1,23 @@
 import LottieView from 'lottie-react-native';
-import {observer} from 'mobx-react';
-import React, {useState} from 'react';
-import styled from 'styled-components/native';
-import {Button} from '../components/Button';
-import {useQuizStore} from '../context/AppContext';
-import {generateQuestions, Question} from '../utils/questionUtil';
+import { observer } from 'mobx-react';
+import { styled } from 'nativewind';
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { AnimatedBackground } from '../components/AnimatedBackground';
+import { Button } from '../components/Button';
+import { useQuizStore } from '../context/AppContext';
+import { generateQuestions, Question } from '../utils/questionUtil';
 
-const Wrapper = styled.SafeAreaView`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-`;
-
-const Container = styled.SafeAreaView`
-  flex: 1;
-  max-width: 600px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-`;
-
-const Footer = styled.View`
-  align-items: center;
-`;
-
-const FooterText = styled.Text`
-  font-size: 20px;
-`;
-
-const TopHalf = styled.View`
-  flex: 2;
-  align-items: flex-end;
-  flex-direction: row;
-`;
-
-const BottomHalf = styled.View`
-  flex: 3;
-  justify-content: flex-start;
-  width: 100%;
-  padding-top: 20px;
-`;
-
-const QuestionText = styled.Text`
-  font-size: 22px;
-  flex: 1;
-`;
-
-const StyledLottieView = styled(LottieView)`
-  width: 300px;
-  height: 300px;
-`;
+const StyledLottieView = styled(LottieView);
 
 const questions = generateQuestions();
 
 function getNewQuestion(answeredQuestions: Question[]) {
   const filteredQuestions = questions.filter(
-    q =>
+    (q) =>
       !answeredQuestions
-        .map(aq => `${aq.type}${aq.repo.full_name}`)
+        .map((aq) => `${aq.type}${aq.repo.full_name}`)
         .includes(`${q.type}${q.repo.full_name}`),
   );
   // All questions answered! Good job!
@@ -94,49 +53,54 @@ const QuizScreen = () => {
   };
 
   return (
-    <Wrapper>
-      <Container>
-        {state === 'correct' && (
-          <StyledLottieView
-            source={require('../assets/lottie/correct.json')}
-            autoPlay
-            loop={false}
-            onAnimationFinish={() => nextQuestion()}
-          />
-        )}
-        {state === 'wrong' && (
-          <StyledLottieView
-            source={require('../assets/lottie/not-correct.json')}
-            autoPlay
-            loop={false}
-            onAnimationFinish={() => nextQuestion()}
-          />
-        )}
-        {state === 'waiting' && (
-          <>
-            <TopHalf>
-              <QuestionText>{question.question}</QuestionText>
-            </TopHalf>
-            <BottomHalf>
-              {question.answers.map((a, index) => {
-                const answerButtonProps = {
-                  label: a,
-                  onPress: () => answer(index + 1),
-                  marginBottom: index !== question.answers.length - 1,
-                };
-                return <Button key={index} {...answerButtonProps} />;
-              })}
-            </BottomHalf>
-          </>
-        )}
-      </Container>
-      <Footer>
-        <FooterText>
-          Your Score {quizStore.score} (
-          {((quizStore.score / questions.length) * 100).toFixed(2)}%)
-        </FooterText>
-      </Footer>
-    </Wrapper>
+    <>
+      <AnimatedBackground />
+      <SafeAreaView className="items-center justify-center flex-1 m-5">
+        <View className="items-center justify-center flex-1 w-full max-w-xl">
+          {state === 'correct' && (
+            <StyledLottieView
+              className="w-[300px] h-[300px]"
+              source={require('../assets/lottie/correct.json')}
+              autoPlay
+              loop={false}
+              onAnimationFinish={() => nextQuestion()}
+            />
+          )}
+          {state === 'wrong' && (
+            <StyledLottieView
+              className="w-[300px] h-[300px]"
+              source={require('../assets/lottie/not-correct.json')}
+              autoPlay
+              loop={false}
+              onAnimationFinish={() => nextQuestion()}
+            />
+          )}
+          {state === 'waiting' && (
+            <>
+              <View className="flex-row items-end flex-2">
+                <Text className="flex-1 text-xl">{question.question}</Text>
+              </View>
+              <View className="justify-start w-full pt-5 flex-3">
+                {question.answers.map((a, index) => {
+                  const answerButtonProps = {
+                    label: a,
+                    onPress: () => answer(index + 1),
+                    marginBottom: index !== question.answers.length - 1,
+                  };
+                  return <Button key={index} {...answerButtonProps} />;
+                })}
+              </View>
+            </>
+          )}
+        </View>
+        <View className="items-center">
+          <Text className="text-xl">
+            Your Score {quizStore.score} (
+            {((quizStore.score / questions.length) * 100).toFixed(2)}%)
+          </Text>
+        </View>
+      </SafeAreaView>
+    </>
   );
 };
 

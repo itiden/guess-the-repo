@@ -1,45 +1,29 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {memo} from 'react';
-import {TouchableOpacity} from 'react-native';
-import styled from 'styled-components/native';
-import {Button} from '../components/Button';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import React, { memo } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { AnimatedBackground } from '../components/AnimatedBackground';
+import { Button } from '../components/Button';
+import { StackParamList } from '../Routes';
 
-const Wrapper = styled.SafeAreaView`
-  justify-content: center;
-  flex: 1;
-  margin: 40px;
-`;
-
-const Content = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Title = styled.Text`
-  font-size: 36px;
-  margin: 20px;
-  text-align: center;
-`;
-
-const CreditText = styled.Text`
-  font-size: 18px;
-  text-align: center;
-  color: rgb(80, 77, 210);
-`;
+type Props = NativeStackNavigationProp<StackParamList, 'Home'>;
 
 const HomeScreen = memo(() => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<Props>();
+
   return (
-    <Wrapper>
-      <Content>
-        <Title>Guess the Repo</Title>
-        <Button label="Play!" onPress={() => navigation.navigate('Quiz')} />
-      </Content>
-      <TouchableOpacity onPress={() => navigation.navigate('Credits')}>
-        <CreditText>Credits</CreditText>
-      </TouchableOpacity>
-    </Wrapper>
+    <>
+      <AnimatedBackground />
+      <View className="justify-center flex-1 m-10">
+        <View className="justify-center flex-1 m-5">
+          <Text className="mb-4 text-3xl text-center">Guess the Repo</Text>
+          <Button label="Play!" onPress={() => navigation.navigate('Quiz')} />
+        </View>
+        <TouchableOpacity onPress={() => navigation.navigate('Credits')}>
+          <Text className="text-lg text-center text-violet-700">Credits</Text>
+        </TouchableOpacity>
+      </View>
+    </>
   );
 });
 

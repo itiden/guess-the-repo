@@ -1,34 +1,21 @@
-import React, {FC, memo} from 'react';
-import styled from 'styled-components/native';
+import { cx } from 'class-variance-authority';
+import React, { memo } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 
-interface WrapperProps {
-  marginBottom?: boolean;
-}
-
-const Wrapper = styled.TouchableOpacity`
-  width: 100%;
-  border-radius: 20px;
-  background-color: rgb(80, 77, 210);
-  padding: 10px 20px;
-  ${(p: WrapperProps) => p.marginBottom && 'margin-bottom: 20px'}
-`;
-
-const Label = styled.Text`
-  font-size: 20px;
-  color: #fff;
-  text-align: center;
-`;
-
-interface ButtonProps {
+type Props = {
   label: string;
   marginBottom?: boolean;
   onPress: () => void;
-}
+};
 
-export const Button: FC<ButtonProps> = memo(
-  ({marginBottom, label, onPress}) => (
-    <Wrapper onPress={onPress} marginBottom={marginBottom}>
-      <Label>{label}</Label>
-    </Wrapper>
-  ),
-);
+export const Button = memo(({ marginBottom, label, onPress }: Props) => (
+  <TouchableOpacity
+    className={cx(
+      'w-full rounded-2xl bg-violet-700 px-2 py-5',
+      marginBottom ? 'mb-5' : null,
+    )}
+    onPress={onPress}
+  >
+    <Text className="text-xl text-center text-white">{label}</Text>
+  </TouchableOpacity>
+));
