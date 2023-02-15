@@ -5,6 +5,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { AnimatedBackground } from '../components/AnimatedBackground';
 import { Button } from '../components/Button';
 import { StackParamList } from '../Routes';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 type Props = NativeStackNavigationProp<StackParamList, 'Home'>;
 
@@ -14,6 +15,15 @@ const HomeScreen = memo(() => {
   return (
     <>
       <AnimatedBackground />
+      <View className="w-14 m-auto">
+        <AntDesign.Button
+          name="user"
+          backgroundColor="rgb(80, 77, 210)"
+          color={'white'}
+          onPress={() => navigation.navigate('Profile')}
+          size={40}
+        />
+      </View>
       <View className="justify-center flex-1 m-10">
         <View className="justify-center flex-1 m-5">
           <Text className="mb-4 text-3xl text-center">Guess the Repo</Text>
