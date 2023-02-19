@@ -16,7 +16,7 @@ const ProfileScreen = () => {
   const handleLogout = async () => {
     try {
       await clearSession();
-      navigation.navigate('Login');
+      navigation.navigate('Home');
     } catch (error) {
       Alert.alert('Failed to logout');
     }

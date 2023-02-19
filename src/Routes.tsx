@@ -6,14 +6,12 @@ import {
 import React from 'react';
 import HomeScreen from './screens/Home';
 import QuizScreen from './screens/Quiz';
-import LoginScreen from './screens/Login';
 import CreditsScreen from './screens/Credits';
 import ProfileScreen from './screens/Profile';
 import config from '../android/app/auth/authO-configuration';
 import { Auth0Provider } from 'react-native-auth0';
 
 export type StackParamList = {
-  Login: undefined;
   Credits: undefined;
   Home: undefined;
   Quiz: undefined;
@@ -26,7 +24,7 @@ const Routes = () => (
   <Auth0Provider domain={config.domain} clientId={config.clientId}>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="Home"
         screenOptions={{
           headerBackTitleStyle: {
             color: 'rgb(80, 77, 210)',
@@ -44,11 +42,6 @@ const Routes = () => (
           name="Profile"
           component={ProfileScreen}
           options={{ title: 'Home' }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Home"
