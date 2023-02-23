@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -12,9 +12,11 @@ type Props = NativeStackNavigationProp<StackParamList, 'Home'>;
 const ProfileScreen = () => {
   const { clearSession, user } = useAuth0();
   const navigation = useNavigation<Props>();
+  const [buttonText, setButtonText] = useState('Logout');
 
   const handleLogout = async () => {
     try {
+      setButtonText('Loading...');
       await clearSession();
       navigation.navigate('Home');
     } catch (error) {
@@ -39,7 +41,7 @@ const ProfileScreen = () => {
           <Text className="mb-4 text-2xl text-center">
             Name: {user?.nickname}
           </Text>
-          <Button label="Log out" onPress={handleLogout} />
+          <Button label={buttonText} onPress={handleLogout} />
         </View>
       </View>
     </>
