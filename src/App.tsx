@@ -3,6 +3,7 @@ import 'react-native-gesture-handler';
 import { AppContextProvider } from './context/AppContext';
 import Routes from './Routes';
 import RNBootSplash from 'react-native-bootsplash';
+import { StatusBar } from 'react-native';
 
 const App = () => {
   useEffect(() => {
@@ -10,6 +11,7 @@ const App = () => {
   }, []);
   return (
     <AppContextProvider>
+      <StatusBar translucent barStyle="dark-content" />
       <Routes />
     </AppContextProvider>
   );
