@@ -11,6 +11,7 @@
     "lint:fix": "eslint ./src --fix",
     "format:test": "prettier --check ./src",
     "format:fix": "prettier --write ./src",
+    "ts:test": "tsc --noEmit --skipLibCheck",
     "postinstall": "patch-package"
   },
   "dependencies": {

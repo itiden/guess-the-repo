@@ -1,4 +1,5 @@
-name: Eslint
+name: Typescript
+
 on:
   push:
     branches:
@@ -6,12 +7,13 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
-  eslint:
+  tsc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Lint
-        run: yarn lint:test
+      - name: Typecheck
+        run: yarn ts:test
