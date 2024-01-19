@@ -24,10 +24,10 @@ export const createQuizStore = () => {
     addAnswer(answer: Answer) {
       this.answers.push(answer);
     },
-    get score() {
+    get score(): number {
       return this.answers.filter((a: Answer) => a.correct).length;
     },
-    get answeredQuestions() {
+    get answeredQuestions(): Question[] {
       return this.answers
         .filter((a: Answer) => a.correct)
         .map((a: Answer) => a.question);
