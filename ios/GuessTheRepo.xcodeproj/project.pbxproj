@@ -12,7 +12,6 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8563CC0D2D47D19C00B2F566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563CC0C2D47D19C00B2F566 /* AppDelegate.swift */; };
 		E1DE5D1B2972177B0030C75D /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DE5D1A2972177B0030C75D /* BootSplash.storyboard */; };
-		E1ECE7BE296864FC00277913 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1ECE7BD296864FC00277913 /* AppCenter-Config.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +25,6 @@
 		8563CC072D47D17900B2F566 /* guesstherepo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "guesstherepo-Bridging-Header.h"; sourceTree = "<group>"; };
 		8563CC0C2D47D19C00B2F566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1DE5D1A2972177B0030C75D /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = GuessTheRepo/BootSplash.storyboard; sourceTree = "<group>"; };
-		E1ECE7BD296864FC00277913 /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AppCenter-Config.plist"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -73,7 +71,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				E1ECE7BD296864FC00277913 /* AppCenter-Config.plist */,
 				13B07FAE1A68108700A75B9A /* guesstherepo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -165,7 +162,6 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				E1ECE7BE296864FC00277913 /* AppCenter-Config.plist in Resources */,
 				E1DE5D1B2972177B0030C75D /* BootSplash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
