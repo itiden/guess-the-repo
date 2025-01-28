@@ -9,6 +9,7 @@ import { styled } from 'nativewind';
 import React, { useEffect } from 'react';
 import { Dimensions } from 'react-native';
 import {
+  useDerivedValue,
   useSharedValue,
   withRepeat,
   withTiming,
@@ -26,11 +27,15 @@ export const AnimatedBackground = () => {
     progress.value = withRepeat(withTiming(1, { duration: 5000 }), -1, true);
   }, [progress]);
 
+  const start = useDerivedValue(() => {
+    return vec(0, mix(progress.value, 0, height));
+  });
+
   return (
     <StyledCanvas className="absolute w-full h-full">
       <Rect x={0} y={0} width={width} height={height}>
         <LinearGradient
-          start={vec(0, mix(progress.value, 0, height))}
+          start={start}
           end={vec(width, height)}
           colors={[colors.violet[100], colors.violet[400]]}
         />
