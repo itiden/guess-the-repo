@@ -1,6 +1,4 @@
-import LottieView from 'lottie-react-native';
 import { observer } from 'mobx-react';
-import { styled } from 'nativewind';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,8 +6,7 @@ import { AnimatedBackground } from '../components/AnimatedBackground';
 import { Button } from '../components/Button';
 import { useQuizStore } from '../context/AppContext';
 import { generateQuestions, Question } from '../utils/questionUtil';
-
-const StyledLottieView = styled(LottieView);
+import { QuestionFeedbackAnimation } from './QuestionFeedbackAnimation';
 
 const questions = generateQuestions();
 
@@ -57,22 +54,10 @@ const QuizScreen = () => {
       <AnimatedBackground />
       <SafeAreaView className="items-center justify-center flex-1 m-5">
         <View className="items-center justify-center flex-1 w-full max-w-xl">
-          {state === 'correct' && (
-            <StyledLottieView
-              className="w-[300px] h-[300px]"
-              source={require('../assets/lottie/correct.json')}
-              autoPlay
-              loop={false}
-              onAnimationFinish={() => nextQuestion()}
-            />
-          )}
-          {state === 'wrong' && (
-            <StyledLottieView
-              className="w-[300px] h-[300px]"
-              source={require('../assets/lottie/not-correct.json')}
-              autoPlay
-              loop={false}
-              onAnimationFinish={() => nextQuestion()}
+          {['correct', 'wrong'].includes(state) && (
+            <QuestionFeedbackAnimation
+              correct={state === 'correct'}
+              onAnimationFinish={nextQuestion}
             />
           )}
           {state === 'waiting' && (
