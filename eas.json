@@ -1,33 +1,36 @@
 {
-    "build": {
-      "base": {
-        "ios": {
-          "image": "latest"
-        },
-        "android": {
-          "image": "latest"
-        }
+  "cli": {
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "base": {
+      "ios": {
+        "image": "latest"
       },
-      "test": {
-        "extends": "base",
-        "distribution": "internal"
-      },
-      "production": {
-        "extends": "base",
-        "distribution": "store"
+      "android": {
+        "image": "latest"
       }
     },
-    "submit": {
-      "production": {
-        "android": {
-          "applicationId": "com.guesstherepo",
-          "track": "beta"
-        },
-        "ios": {
-          "bundleIdentifier": "se.itiden.guesstherepo",
-          "ascAppId": "1498737662"
-        }
+    "test": {
+      "extends": "base",
+      "distribution": "internal"
+    },
+    "production": {
+      "extends": "base",
+      "distribution": "store",
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "applicationId": "com.guesstherepo",
+        "track": "beta"
+      },
+      "ios": {
+        "bundleIdentifier": "se.itiden.guesstherepo",
+        "ascAppId": "1498737662"
       }
     }
   }
-  
+}
