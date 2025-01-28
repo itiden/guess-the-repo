@@ -13,7 +13,9 @@
     "format:fix": "prettier --write ./src",
     "ts:test": "tsc --noEmit --skipLibCheck",
     "postinstall": "patch-package",
-    "clean": "react-native-clean-project"
+    "clean": "react-native-clean-project",
+    "deploy:test": "npx eas-cli build --platform all --profile test --non-interactive --no-wait",
+    "deploy:prod": "npx eas-cli build --platform all --profile production --non-interactive --no-wait --auto-submit"
   },
   "dependencies": {
     "@react-navigation/native": "^7.0.14",
