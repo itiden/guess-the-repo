@@ -47,7 +47,7 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-guesstherepo-guesstherepoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-guesstherepo-guesstherepoTests.release.xcconfig"; path = "Target Support Files/Pods-guesstherepo-guesstherepoTests/Pods-guesstherepo-guesstherepoTests.release.xcconfig"; sourceTree = "<group>"; };
 		E1DE5D1A2972177B0030C75D /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = GuessTheRepo/BootSplash.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		FE432679A4631D273F2AF575 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = guesstherepo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		FE432679A4631D273F2AF575 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = guesstherepo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +479,7 @@
 				INFOPLIST_FILE = guesstherepo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Guess the Repo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,6 +513,7 @@
 				INFOPLIST_FILE = guesstherepo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Guess the Repo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.trivia-games";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
