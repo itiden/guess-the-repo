@@ -1,0 +1,33 @@
+{
+    "build": {
+      "base": {
+        "ios": {
+          "image": "latest"
+        },
+        "android": {
+          "image": "latest"
+        }
+      },
+      "test": {
+        "extends": "base",
+        "distribution": "internal"
+      },
+      "production": {
+        "extends": "base",
+        "distribution": "store"
+      }
+    },
+    "submit": {
+      "production": {
+        "android": {
+          "applicationId": "com.guesstherepo",
+          "track": "alpha"
+        },
+        "ios": {
+          "bundleIdentifier": "se.itiden.guesstherepo",
+          "ascAppId": "1498737662"
+        }
+      }
+    }
+  }
+  

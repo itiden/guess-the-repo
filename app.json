@@ -1,4 +1,9 @@
 {
   "name": "guesstherepo",
-  "displayName": "Guess the Repo"
+  "displayName": "Guess the Repo",
+  "extra": {
+    "eas": {
+      "projectId": "6922c55a-26ff-43f7-a940-c7b9694869a1"
+    }
+  }
 }
