@@ -32,6 +32,6 @@ This app is deployed through Expo EAS.
 ### Build app for AppStore/Google Play
 
 1. Checkout `main` branch and have a clean state
-1. Update version and build numbers in Android gradle and Xcode
+1. Update build numbers in Android gradle and Xcode
 1. Run `yarn deploy:prod`
 1. Build will be submitted to TestFlight and Google Play Open Beta
