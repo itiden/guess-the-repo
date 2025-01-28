@@ -21,9 +21,6 @@ const Routes = () => (
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
-        headerBackTitleStyle: {
-          color: 'rgb(80, 77, 210)',
-        },
         headerTransparent: true,
         headerTintColor: 'rgb(80, 77, 210)',
         headerTitleStyle: {
