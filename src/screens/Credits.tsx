@@ -1,8 +1,7 @@
 import { FlashList } from '@shopify/flash-list';
 import { cx } from 'class-variance-authority';
 import React from 'react';
-import { Linking, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Linking, Pressable, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Link } from '../components/Link';
 import repos from '../data/repos.json';
@@ -33,7 +32,7 @@ const Credits = () => (
       data={repos}
       estimatedItemSize={33}
       renderItem={({ item, index }) => (
-        <TouchableOpacity
+        <Pressable
           className={cx(
             'p-2 flex-row',
             index % 2 !== 0 ? 'bg-gray-100' : 'bg-gray-200',
@@ -44,7 +43,7 @@ const Credits = () => (
         >
           <Text className="flex-1">{item.full_name}</Text>
           <Text className="text-violet-700">&gt;</Text>
-        </TouchableOpacity>
+        </Pressable>
       )}
     />
   </SafeAreaView>
