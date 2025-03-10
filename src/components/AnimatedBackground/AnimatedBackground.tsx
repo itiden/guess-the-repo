@@ -5,7 +5,7 @@ import {
   Rect,
   vec,
 } from '@shopify/react-native-skia';
-import { styled } from 'nativewind';
+import { remapProps } from 'nativewind';
 import React, { useEffect } from 'react';
 import { Dimensions } from 'react-native';
 import {
@@ -16,7 +16,9 @@ import {
 } from 'react-native-reanimated';
 import colors from 'tailwindcss/colors';
 
-const StyledCanvas = styled(Canvas);
+remapProps(Canvas, {
+  className: 'style',
+});
 
 export const AnimatedBackground = () => {
   const width = Dimensions.get('screen').width;
@@ -32,7 +34,7 @@ export const AnimatedBackground = () => {
   });
 
   return (
-    <StyledCanvas className="absolute w-full h-full">
+    <Canvas className="absolute w-full h-full">
       <Rect x={0} y={0} width={width} height={height}>
         <LinearGradient
           start={start}
@@ -40,6 +42,6 @@ export const AnimatedBackground = () => {
           colors={[colors.violet[100], colors.violet[400]]}
         />
       </Rect>
-    </StyledCanvas>
+    </Canvas>
   );
 };

@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --client-logs",
     "test": "jest",
     "lint:test": "eslint ./src ",
     "lint:fix": "eslint ./src --fix",
@@ -18,26 +18,26 @@
     "deploy:prod": "npx eas-cli build --platform all --profile production --non-interactive --no-wait --auto-submit"
   },
   "dependencies": {
-    "@react-navigation/native": "^7.0.14",
-    "@react-navigation/native-stack": "^7.2.0",
-    "@react-navigation/stack": "^7.1.1",
-    "@shopify/flash-list": "^1.7.2",
-    "@shopify/react-native-skia": "^1.10.2",
+    "@react-navigation/native": "^7.0.15",
+    "@react-navigation/native-stack": "^7.2.1",
+    "@react-navigation/stack": "^7.1.2",
+    "@shopify/flash-list": "^1.7.3",
+    "@shopify/react-native-skia": "^1.11.11",
     "class-variance-authority": "^0.7.1",
     "lottie-react-native": "^7.2.2",
-    "mobx": "^6.13.5",
+    "mobx": "^6.13.6",
     "mobx-persist-store": "^1.1.5",
     "mobx-react": "^9.2.0",
-    "nativewind": "^2.0.11",
+    "nativewind": "^4.1.23",
     "postinstall-postinstall": "^2.1.0",
     "react": "19.0.0",
     "react-native": "0.78.0",
-    "react-native-bootsplash": "^6.3.2",
-    "react-native-gesture-handler": "^2.22.1",
+    "react-native-bootsplash": "^6.3.3",
+    "react-native-gesture-handler": "^2.24.0",
     "react-native-mmkv": "^3.2.0",
-    "react-native-reanimated": "^3.16.7",
-    "react-native-safe-area-context": "^5.1.0",
-    "react-native-screens": "^4.5.0"
+    "react-native-reanimated": "^3.17.1",
+    "react-native-safe-area-context": "^5.3.0",
+    "react-native-screens": "^4.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -60,7 +60,7 @@
     "react-native-clean-project": "^4.0.3",
     "react-native-testing-library": "^6.0.0",
     "react-test-renderer": "19.0.0",
-    "tailwindcss": "3.3.2",
+    "tailwindcss": "^3.4.17",
     "typescript": "5.0.4"
   },
   "engines": {

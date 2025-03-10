@@ -1,3 +1,4 @@
+import '../global.css';
 import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
 import { AppContextProvider } from './context/AppContext';
