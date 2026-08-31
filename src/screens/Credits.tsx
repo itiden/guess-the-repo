@@ -13,7 +13,7 @@ const CreditsHeader = () => (
     </Text>
     <Text className="text-base">
       The app itself is created by{' '}
-      <Link url="https://www.itiden.se">itiden</Link> and is open sourced at{' '}
+      <Link url="https://www.itiden.se">Itiden</Link> and is open sourced at{' '}
       <Link url="https://github.com/itiden/guess-the-repo">
         github.com/itiden/guess-the-repo
       </Link>
