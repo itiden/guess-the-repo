@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-native/package.json b/node_modules/react-native/package.json
+index d2e544a..fc2fd6c 100644
+--- a/node_modules/react-native/package.json
++++ b/node_modules/react-native/package.json
+@@ -60,6 +60,7 @@
+       "default": "./src/unstable-internals-do-not-use.js"
+     },
+     "./src/fb_internal/*": "./src/fb_internal/*",
++    "./src/private/featureflags/ReactNativeFeatureFlags": "./src/private/featureflags/ReactNativeFeatureFlags.js",
+     "./package.json": "./package.json"
+   },
+   "jest-junit": {

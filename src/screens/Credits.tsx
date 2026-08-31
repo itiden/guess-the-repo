@@ -1,8 +1,7 @@
 import { FlashList } from '@shopify/flash-list';
 import { cx } from 'class-variance-authority';
 import React from 'react';
-import { Linking, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Linking, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Link } from '../components/Link';
 import repos from '../data/repos.json';
@@ -14,7 +13,7 @@ const CreditsHeader = () => (
     </Text>
     <Text className="text-base">
       The app itself is created by{' '}
-      <Link url="https://www.itiden.se">itiden</Link> and is open sourced at{' '}
+      <Link url="https://www.itiden.se">Itiden</Link> and is open sourced at{' '}
       <Link url="https://github.com/itiden/guess-the-repo">
         github.com/itiden/guess-the-repo
       </Link>
@@ -31,7 +30,6 @@ const Credits = () => (
       ListHeaderComponent={CreditsHeader}
       keyExtractor={(item) => item.full_name}
       data={repos}
-      estimatedItemSize={33}
       renderItem={({ item, index }) => (
         <TouchableOpacity
           className={cx(

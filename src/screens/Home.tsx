@@ -1,12 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React, { memo } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { AnimatedBackground } from '../components/AnimatedBackground';
 import { Button } from '../components/Button';
 import { StackParamList } from '../Routes';
 
-type Props = NativeStackNavigationProp<StackParamList, 'Home'>;
+type Props = StackNavigationProp<StackParamList, 'Home'>;
 
 const HomeScreen = memo(() => {
   const navigation = useNavigation<Props>();

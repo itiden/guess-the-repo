@@ -1,15 +1,17 @@
 import { makeAutoObservable } from 'mobx';
 import { configurePersistable, makePersistable } from 'mobx-persist-store';
-import { MMKV } from 'react-native-mmkv';
+import { createMMKV } from 'react-native-mmkv';
 import { Question } from '../utils/questionUtil';
 
-const storage = new MMKV();
+const storage = createMMKV();
 
 configurePersistable({
   storage: {
     setItem: (key, data) => storage.set(key, data),
     getItem: (key) => storage.getString(key) ?? null,
-    removeItem: (key) => storage.delete(key),
+    removeItem: (key) => {
+      storage.remove(key);
+    },
   },
 });
 

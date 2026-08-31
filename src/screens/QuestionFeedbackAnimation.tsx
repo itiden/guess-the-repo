@@ -1,12 +1,16 @@
 import LottieView from 'lottie-react-native';
-import { styled } from 'nativewind';
 import React, { useCallback, useEffect } from 'react';
+import { StyleSheet } from 'react-native';
 import Animated, {
   runOnJS,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-const StyledLottieView = styled(Animated.createAnimatedComponent(LottieView));
+const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
+
+const styles = StyleSheet.create({
+  animation: { width: 300, height: 300 },
+});
 
 type QuestionFeedbackAnimationProps = {
   correct: boolean;
@@ -30,8 +34,8 @@ export const QuestionFeedbackAnimation = ({
   }, [progress, handleAnimationFinish]);
 
   return (
-    <StyledLottieView
-      className="w-[300px] h-[300px]"
+    <AnimatedLottieView
+      style={styles.animation}
       source={
         correct
           ? require('../assets/lottie/correct.json')
